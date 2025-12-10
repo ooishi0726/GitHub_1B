@@ -19,7 +19,38 @@
     <canvas id="myCanvas" width="480" height="320"> 
     </canvas>
     <script>
-        // JavaScript　のコードはここ
+        //描画の準備
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");     //Contxet　：　描画の設定をまとめた変数
+
+        //Path　：　一回の描画(beginPath関数, closePath関数で挟む)
+        ctx.beginPath();
+        ctx.rect(20, 40, 50, 50);
+        //rectangle(四角形/長方形)を設定
+        //引数(左のスクリーンの座標, 上のスクリーンの座標, 幅, 高さ)　：　単位はピクセル
+        ctx.fillStyle = "#FF0000";
+        //fill(塗りつぶし) Styleを設定 / カラーコード(16新数RRGGBB)
+        ctx.fill();
+        //塗りつぶし実行
+        ctx.closePath();
+        
+        ctx.beginPath();
+        ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
+        //arc(円弧)関数
+        //引数(Argument)
+        //円の中心のx, yの座標
+        //円の半径(radius)
+        //中心角の始まりと終わり(Angle) ※単位はラジアン(1週360度(Degree) -> 2n)
+        //時計回り(CW/CloseWise)、反時計回り(CCW/CouterClockWise)
+        ctx.fillStyle = "green";      //色の名前
+        ctx.fill();  //塗りつぶしを実行
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.rect(160, 10, 100, 40);
+        ctx.strokeStyle = "rgba(0, 0, 250, 0.5)";
+        ctx.stroke();
+        ctx.closePath();
     </script>
 </body>
 </html>
