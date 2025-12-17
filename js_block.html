@@ -49,8 +49,35 @@
         ctx.beginPath();
         ctx.rect(160, 10, 100, 40);
         ctx.strokeStyle = "rgba(0, 0, 250, 0.5)";
-        ctx.stroke();
+        //rgb:0 ~ 255, a:0.0 ~ 1.0
+        ctx.stroke();    //輪郭線の描画
         ctx.closePath();
+
+        //↑関数の呼び出し(call)
+
+        //変数(Variable)の宣言(declaration)
+        let x = canvas.width/2;
+        let y = canvas.height - 30;
+        let dx = 2;
+        let dy = -2;
+        //関数(function)の定義(definition) / 自分で作る
+        function drowBall()
+        {    
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 0, Math.PI * 2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }    
+        function drow()
+        {
+            ctx.clearRect(0, 0, canvas.width, camvas.height);
+           drowBall()
+            x += dx;
+            y += dy;
+        }
+        setInterval(drow, 10);
+        //draw関数を10ミリ秒間隔で実行し続ける
     </script>
 </body>
 </html>
